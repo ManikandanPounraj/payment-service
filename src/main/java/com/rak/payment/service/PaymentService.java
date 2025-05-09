@@ -37,7 +37,8 @@ public class PaymentService {
 
 		Payment saved = repo.save(payment);
 		log.info("Payment saved with ID {}", saved.getId());
-
+		
+		
 		NotificationRequest notify = NotificationRequest.builder().userId(booking.getUserId())
 				.eventId(booking.getEventId()).numberOfTickets(booking.getNumberOfSeats()).paymentAmount(amount)
 				.type("BOOKING").build();
@@ -51,4 +52,18 @@ public class PaymentService {
 	public Payment get(Long id) {
 		return repo.findById(id).orElseThrow(() -> new NoSuchElementException("Payment not found"));
 	}
+	
+	public Payment refund(Long id) {
+	    Payment payment = repo.findById(id)
+	        .orElseThrow(() -> new NoSuchElementException("Payment not found"));
+
+	    if (payment.isRefunded()) {
+	        throw new IllegalStateException("Payment already refunded");
+	    }
+
+	    payment.setRefunded(true);
+	    payment.setRefundTime(LocalDateTime.now());
+	    return repo.save(payment);
+	}
+
 }

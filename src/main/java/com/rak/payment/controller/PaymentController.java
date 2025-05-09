@@ -34,4 +34,11 @@ public class PaymentController {
 	public ResponseEntity<Payment> get(@PathVariable Long id) {
 		return ResponseEntity.ok(service.get(id));
 	}
+	
+	@PostMapping("/{id}/refund")
+	@Operation(summary = "Refund a payment")
+	public ResponseEntity<Payment> refund(@PathVariable Long id) {
+	    return ResponseEntity.ok(service.refund(id));
+	}
+
 }

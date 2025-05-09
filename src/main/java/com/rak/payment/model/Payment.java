@@ -26,4 +26,7 @@ public class Payment {
 	private Long userId;
 	private double amount;
 	private LocalDateTime paymentTime;
+	private boolean refunded;
+	private LocalDateTime refundTime;
+
 }

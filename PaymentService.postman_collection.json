@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "fc3616ab-5a7f-4db6-93ba-95ddb9970d63",
+		"name": "PaymentService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44784589",
+		"_collection_link": "https://manikandan-3492006.postman.co/workspace/Manikandan's-Workspace~db84f807-3804-473e-8e42-f8dd5375c254/collection/44784589-fc3616ab-5a7f-4db6-93ba-95ddb9970d63?action=share&source=collection_link&creator=44784589"
+	},
+	"item": [
+		{
+			"name": "Process Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/api/payments?bookingId=1&amount=500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"api",
+						"payments"
+					],
+					"query": [
+						{
+							"key": "bookingId",
+							"value": "1"
+						},
+						{
+							"key": "amount",
+							"value": "500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/api/payments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"api",
+						"payments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refund",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/api/payments/1/refund",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"api",
+						"payments",
+						"1",
+						"refund"
+					]
+				},
+				"description": "Generated from cURL: curl --location --request POST 'http://localhost:8084/api/payments/1/refund'\r\n"
+			},
+			"response": []
+		}
+	]
+}
